@@ -1,0 +1,116 @@
+import { StyleSheet } from 'react-native';
+import Constants from 'expo-constants';
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        paddingHorizontal:32,
+        paddingTop: 20 + Constants.statusBarHeight,
+      },
+      containerBack:{
+        flexDirection:'row',
+        justifyContent:'space-between'
+       },
+      containerbox:{
+        marginBottom:30,
+        marginTop:120,
+        flexDirection:'row',
+        justifyContent:'space-between'
+      },
+      containerboxImage:{
+      },
+      containerboxText:{
+       fontSize:23,
+       color:'#FFD246',
+       fontWeight:'700',
+       paddingHorizontal:10,
+      },
+      mainPage:{
+        justifyContent:'center',
+        alignItems:'center',
+      },
+      mainPageForm:{
+        flexDirection:'row',
+        justifyContent:'space-between',
+      },
+      mainText:{
+        fontSize:18,
+       color:'#ffff',
+       top:5,
+       fontWeight:'700',
+      },
+      mainTextInput:{
+        backgroundColor:'#fff',
+        width:241,
+        height:32,
+        left:10,
+        marginBottom:30,
+        borderRadius:9,
+      },
+      mainInputText:{
+        height:150,
+        width:330,
+        top:10,
+        backgroundColor:'#fff',
+        paddingHorizontal:20,
+        borderRadius:8,
+      },
+      mainInputTextEsqueceuText:
+      {
+        color:'#fff',
+        fontSize:14,
+        fontWeight:'bold'
+      },
+      mainInputButton:{
+        backgroundColor:'#fff',
+        width:100,
+        height:40,
+        marginBottom:20,
+        borderRadius:14,
+        justifyContent:'center',
+        alignItems:'center',
+        textAlign:'center'
+      },
+      mainInputButtonText:{
+        fontSize:16,
+        color:'#535353'
+      },
+      footer:{
+        justifyContent:'center',
+        alignItems:'center',
+        height:130,
+        top:200,
+      },
+      footerImg:{
+        width:133,
+        height:70
+      },
+      footerTextBold:{
+        fontWeight:'800',
+        color:'#fff',
+        fontSize:14,
+      },
+      containerButton:{
+        width:120,
+        marginTop:50,
+        height:50,
+        borderRadius:10,
+        justifyContent:'center',
+        alignItems:'center',
+        backgroundColor:'#FFD246'
+      },
+      mainInputTextObs:{
+        color:'#FFD246',
+        fontWeight:'500',
+        fontSize:20,
+        left:10
+      },
+
+      containerButtonText:{
+        color:'#000',
+        fontWeight:'500',
+        fontSize:20,
+      },
+})
+
+export default styles;
