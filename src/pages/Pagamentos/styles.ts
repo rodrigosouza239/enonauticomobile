@@ -41,7 +41,16 @@ const styles = StyleSheet.create({
     contentItem:{
       flexDirection: 'row',
       justifyContent: 'space-between',
-      marginTop: '8%'
+      marginTop: '8%',
+      alignItems:'center',
+    },
+
+    contentItem1:{
+      flexDirection: 'row',
+      marginTop:8,
+      justifyContent:'space-between',
+      alignItems:'center',
+      maxWidth:240,
     },
 
     textBold:{
@@ -54,6 +63,15 @@ const styles = StyleSheet.create({
       color:'#FFD246',
       fontSize:14,
     },
+
+    textItem1:{
+      color:'#FFD246',
+      fontSize:14,
+      marginTop:5,
+      marginLeft:10,
+      textAlign:'right'
+    },
+
 
     footer:{
       justifyContent:'center',

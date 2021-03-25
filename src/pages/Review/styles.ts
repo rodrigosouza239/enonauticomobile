@@ -19,10 +19,10 @@ const styles = StyleSheet.create({
   },
 
   main: {
-    flexDirection: "row",
+    flexDirection:'column',
     alignSelf: "center",
-    justifyContent: "space-between",
-    width: "80%",
+    justifyContent:'center',
+    width: "90%",
     marginBottom: 10
     // backgroundColor: "#000",
   },
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
 
   mainInput2: {
     backgroundColor: "#fff",
-    width: "45%",
+    width:333,
     height: 40,
     // marginBottom: 8,
     borderRadius: 14,
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
 
   mainInput3: {
     backgroundColor: "#fff",
-    width: "66.2%",
+    width:333,
     height: 40,
     // marginBottom: 8,
     borderRadius: 14,
@@ -55,17 +55,18 @@ const styles = StyleSheet.create({
 
   mainInput4: {
     backgroundColor: "#fff",
-    width: "45%",
+    width:333,
     height: 40,
     // marginBottom: 8,
     borderRadius: 14,
     fontSize: 16,
     paddingHorizontal: 20,
+    marginTop:10
   },
 
   mainInput5: {
     backgroundColor: "#fff",
-    width: "75%",
+    width:333,
     height: 40,
     // marginBottom: 8,
     borderRadius: 14,
@@ -74,8 +75,7 @@ const styles = StyleSheet.create({
   },
   mainInput: {
     backgroundColor: "#fff",
-    width: "56.2%",
-    height: 40,
+    width:333,
     // marginBottom: 8,
     borderRadius: 14,
     fontSize: 16,
@@ -85,23 +85,25 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontSize: 18,
     fontWeight: "800",
-    marginTop: 10,
+    marginTop:2,
     paddingHorizontal: 10,
+    marginBottom:10
   },
 
   mainInputButton: {
-    top: "12%",
-    backgroundColor: "#fff",
-    width: 129,
-    height: 50,
-    borderRadius: 14,
-    justifyContent: "center",
-    alignItems: "center",
-    textAlign: "center",
+      width: 102,
+      marginTop: 12,
+      marginHorizontal: "auto",
+      height: 42,
+      borderRadius: 10,
+      justifyContent: "center",
+      alignItems: "center",
+      backgroundColor: "#FFD246",
   },
   mainInputButtonText: {
     fontSize: 16,
-    color: "#535353",
+    color: "#fff",
+    fontWeight:'bold'
   },
   footer: {
     justifyContent: "center",

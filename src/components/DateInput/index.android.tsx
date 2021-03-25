@@ -15,10 +15,10 @@ export default function DateInput({date, onChange}:any) {
 
   async function handleOpenPicker() {
     const {action, year, month, day} = await DatePickerAndroid.open({
-      mode: 'spinner',
+      mode:'spinner',
       date,
     });
-
+    
     if (action === DatePickerAndroid.dateSetAction) {
       const selectedDate = new Date(year, month, day);
 

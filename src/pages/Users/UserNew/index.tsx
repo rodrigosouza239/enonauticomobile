@@ -7,6 +7,7 @@ import {
   TextInput,
   Alert,
   TouchableOpacity,
+  SectionList,
 } from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
@@ -72,6 +73,7 @@ function UserPerfil() {
     );
   }
 
+
   return (
     <>
       <ImageBackground
@@ -88,18 +90,11 @@ function UserPerfil() {
         <View style={styles.mainPageForm}>
           <View style={styles.fieldInput}>
             <Text style={styles.fieldInputText}>Cargo:</Text>
-            <View style={styles.fieldInputTextInputProprietario}>
-              <Picker
-                selectedValue={cargo}
-                style={styles.fieldInputTextInputProprietarioPicker}
-                onValueChange={(itemValue: any, itemIndex) => {
-                  setCargo(itemValue);
-                }}
-              >
-                <Picker.Item label={"Cliente"} value={"Cliente"} />
-                <Picker.Item label={"Funcionario"} value={"Funcionario"} />
-              </Picker>
-            </View>
+            <TextInput
+              value={cargo}
+              onChangeText={setCargo}
+              style={styles.fieldInputTextInputNome}
+            />
           </View>
 
           <View style={styles.fieldInput}>

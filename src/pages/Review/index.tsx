@@ -13,7 +13,7 @@ import { Feather } from "@expo/vector-icons";
 import { parseISO, isBefore, isAfter } from "date-fns";
 import DatePicker from 'react-native-datepicker'
 import { useNavigation, useRoute } from "@react-navigation/native";
-
+import moment from 'moment';
 import api from "../../service/axios";
 
 import Backgroud from "../../assets/backgroudmenu.png";
@@ -26,6 +26,12 @@ function Review() {
   const route = useRoute();
   const { navigate } = useNavigation();
   const { vessel }: any = route.params;
+
+  const FORMATS = {
+    'date': 'DD-MM-YYYY',
+    'datetime': 'YYYY-MM-DD HH:mm',
+    'time': 'HH:mm'
+  };
 
   const [hora, setHora] = useState("");
   const [responsavel, setResponsavel] = useState("");
@@ -72,13 +78,11 @@ function Review() {
         <View style={styles.main}>
           <Text style={styles.mainInputText}>Data da última revisão:</Text>
             <DatePicker
-              style={{width: 200}}
+              style={{width: 333}}
               date={selectedDateLast}
-              mode="date"
               placeholder="select date"
-              format="YYYY-MM-DD"
-              minDate="2021-01-01"
-              maxDate="2099-06-01"
+              format={FORMATS.date}
+              mode="date"
               confirmBtnText="Confirm"
               cancelBtnText="Cancel"
               customStyles={{
@@ -86,32 +90,32 @@ function Review() {
                   position: 'absolute',
                   left: 0,
                   // top: 4,
-                  marginLeft: 0
+                  marginLeft:20
                 },
                 dateInput: {
                   // marginLeft: 36
                   backgroundColor: "#FFF",
                   borderRadius: 14,
-                  maxWidth: "60%",
+                  maxWidth:333,
                   borderColor: "#FFF",
-                  height: 38,
+                  height:40,
                 }
               }}
               onDateChange={(date:any) => {setSelectedDateLast(date)}}
             />
         </View>
         <View style={styles.main}>
-          <Text style={styles.mainInputText}>Hora/Motor:</Text>
           <TextInput
             value={hora}
+            placeholder="Hora/Motor" placeholderTextColor='#000'
             onChangeText={setHora}
             style={styles.mainInput3}
           />
         </View>
         <View style={styles.main}>
-          <Text style={styles.mainInputText}>Empresa Responsável:</Text>
           <TextInput
             value={responsavel}
+            placeholder="Empresa Responsável" placeholderTextColor='#000'
             onChangeText={setResponsavel}
             style={styles.mainInput4}
           />
@@ -125,13 +129,11 @@ function Review() {
           /> */}
 
             <DatePicker
-              style={{width: 200}}
+              style={{width: 333,}}
               date={selectedDateNext}
               mode="date"
               placeholder="select date"
-              format="YYYY-MM-DD"
-              minDate="2021-01-01"
-              maxDate="2099-06-01"
+              format={FORMATS.date}
               confirmBtnText="Confirm"
               cancelBtnText="Cancel"
               customStyles={{
@@ -139,24 +141,24 @@ function Review() {
                   position: 'absolute',
                   left: 0,
                   top: 4,
-                  marginLeft: 0
+                  marginLeft: 20
                 },
                 dateInput: {
-                  marginLeft: 36,
+                  
                   backgroundColor: "#FFF",
                   borderRadius: 14,
-                  maxWidth: "80%",
+                  maxWidth:333,
                   borderColor: "#FFF",
-                  height: 38,
+                  height:40,
                 }
               }}
               onDateChange={(date:any) => {setSelectedDateNext(date)}}
             />
         </View>
         <View style={styles.main}>
-          <Text style={styles.mainInputText}>Técnico:</Text>
           <TextInput
             value={tecnico}
+            placeholder="Técnico" placeholderTextColor='#000'
             onChangeText={setTecnico}
             style={styles.mainInput5}
           />

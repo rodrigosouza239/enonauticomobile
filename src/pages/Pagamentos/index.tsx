@@ -36,9 +36,9 @@ function Pagamentos() {
             <Text style={styles.textItem}>Banco do Brasil</Text>
           </View>
 
-          <View style={styles.contentItem}>
+          <View style={styles.contentItem1}>
             <Text style={styles.textBold}>Favorecido: </Text>
-            <Text style={styles.textItem}>Raimundo Émerson Mendes Gonçalves</Text>
+            <Text style={styles.textItem1}>Raimundo Émerson Mendes Gonçalves</Text>
           </View>
 
           <View style={styles.contentItem}>

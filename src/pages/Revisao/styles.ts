@@ -33,21 +33,20 @@ const styles = StyleSheet.create({
   },
 
   mainInputButton: {
-    backgroundColor: "#fff",
-    width: 120,
-
-    height: 46,
-
-    marginBottom: 20,
-    borderRadius: 14,
-    justifyContent: "center",
-    alignItems: "center",
-    textAlign: "center",
+      width: 122,
+      marginTop: 32,
+      marginHorizontal: "auto",
+      paddingHorizontal:10,
+      height: 42,
+      borderRadius: 10,
+      justifyContent: "center",
+      alignItems: "center",
+      backgroundColor: "#FFD246",
   },
   mainInputButtonText: {
     fontSize: 12,
     textAlign:"center",
-    color: "#535353",
+    color: "#fff",
     fontWeight: "bold",
     paddingHorizontal: 2
   },
