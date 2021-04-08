@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
 
   mainInput3: {
     backgroundColor: "#fff",
-    width:333,
+    width:'98%',
     height: 40,
     // marginBottom: 8,
     borderRadius: 14,
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
 
   mainInput4: {
     backgroundColor: "#fff",
-    width:333,
+    width:'98%',
     height: 40,
     // marginBottom: 8,
     borderRadius: 14,
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
 
   mainInput5: {
     backgroundColor: "#fff",
-    width:333,
+    width:'98%',
     height: 40,
     // marginBottom: 8,
     borderRadius: 14,
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
   },
   mainInput: {
     backgroundColor: "#fff",
-    width:333,
+    width:'98%',
     // marginBottom: 8,
     borderRadius: 14,
     fontSize: 16,

@@ -24,18 +24,8 @@ export async function deleteUser() {
     throw e;
   }
 }
-
-// NavigationService
 let navigator = useNavigation();
 
 export function setTopLevelNavigator(navigatorRef:any) {
   navigator = navigatorRef;
 }
-
-// export function navigate(routeName:any, params:any) {
-//   navigator.dispatch(
-//     NavigationAction.navigate({
-//       routeName,
-//       params,
-//     }),
-//   )}

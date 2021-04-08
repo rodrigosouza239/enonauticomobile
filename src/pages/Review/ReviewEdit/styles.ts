@@ -20,10 +20,10 @@ const styles = StyleSheet.create({
   },
 
   main: {
-    flexDirection: "row",
+    flexDirection:'column',
     alignSelf: "center",
-    justifyContent: "space-between",
-    width: "80%",
+    justifyContent:'center',
+    width: "90%",
     marginBottom: 10
     // backgroundColor: "#000",
   },
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
 
   mainInput2: {
     backgroundColor: "#fff",
-    width: "45%",
+    width:'98%',
     height: 40,
     // marginBottom: 8,
     borderRadius: 14,
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
 
   mainInput3: {
     backgroundColor: "#fff",
-    width: "66.2%",
+    width:'98%',
     height: 40,
     // marginBottom: 8,
     borderRadius: 14,
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
 
   mainInput4: {
     backgroundColor: "#fff",
-    width: "45%",
+    width:'98%',
     height: 40,
     // marginBottom: 8,
     borderRadius: 14,
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
 
   mainInput5: {
     backgroundColor: "#fff",
-    width: "75%",
+    width:'98%',
     height: 40,
     // marginBottom: 8,
     borderRadius: 14,
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
   },
   mainInput: {
     backgroundColor: "#fff",
-    width: "56.2%",
+    width:'98%',
     height: 40,
     // marginBottom: 8,
     borderRadius: 14,

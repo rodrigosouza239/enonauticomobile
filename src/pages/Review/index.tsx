@@ -7,15 +7,10 @@ import {
   TextInput,
   Alert,
   TouchableOpacity,
-  KeyboardAvoidingView,
 } from "react-native";
-import { Feather } from "@expo/vector-icons";
-import { parseISO, isBefore, isAfter } from "date-fns";
-import DatePicker from 'react-native-datepicker'
 import { useNavigation, useRoute } from "@react-navigation/native";
-import moment from 'moment';
 import api from "../../service/axios";
-
+import InputForm from "../../components/Input/InputForm";
 import Backgroud from "../../assets/backgroudmenu.png";
 import styles from "./styles";
 import Logo from "../../assets/logo.png";
@@ -27,37 +22,39 @@ function Review() {
   const { navigate } = useNavigation();
   const { vessel }: any = route.params;
 
-  const FORMATS = {
-    'date': 'DD-MM-YYYY',
-    'datetime': 'YYYY-MM-DD HH:mm',
-    'time': 'HH:mm'
-  };
+  function handleCustom(value: string) {
+    setSelectedDateLast(value);
+  }
+
+  function handleCustom1(value: string) {
+    setSelectedDateNext(value);
+  }
 
   const [hora, setHora] = useState("");
   const [responsavel, setResponsavel] = useState("");
 
   const [tecnico, setTecnico] = useState("");
 
-  const [selectedDateLast, setSelectedDateLast] = useState(new Date());
-  const [selectedDateNext, setSelectedDateNext] = useState(new Date());
+  const [selectedDateLast, setSelectedDateLast] = useState("");
+  const [selectedDateNext, setSelectedDateNext] = useState("");
 
-  async function hadleNavigateToSalvar(){
+  async function hadleNavigateToSalvar() {
     const data = {
       vesselId: vessel.id,
       lastReview: String(selectedDateLast),
       engineHour: hora,
       firm: responsavel,
       nextReview: String(selectedDateNext),
-      expert: tecnico
+      expert: tecnico,
     };
 
     try {
       const response = await api.post("/reviews", data);
       navigate("Revisao");
-      Alert.alert("","Revisão criada com sucesso")
+      Alert.alert("", "Revisão criada com sucesso");
     } catch (err) {
-      console.log(err.response)
-      Alert.alert("","Erro no cadastro, tente novamente.");
+      console.log(err.response);
+      Alert.alert("", "Erro no cadastro, tente novamente.");
     }
   }
 
@@ -77,37 +74,20 @@ function Review() {
 
         <View style={styles.main}>
           <Text style={styles.mainInputText}>Data da última revisão:</Text>
-            <DatePicker
-              style={{width: 333}}
-              date={selectedDateLast}
-              placeholder="select date"
-              format={FORMATS.date}
-              mode="date"
-              confirmBtnText="Confirm"
-              cancelBtnText="Cancel"
-              customStyles={{
-                dateIcon: {
-                  position: 'absolute',
-                  left: 0,
-                  // top: 4,
-                  marginLeft:20
-                },
-                dateInput: {
-                  // marginLeft: 36
-                  backgroundColor: "#FFF",
-                  borderRadius: 14,
-                  maxWidth:333,
-                  borderColor: "#FFF",
-                  height:40,
-                }
-              }}
-              onDateChange={(date:any) => {setSelectedDateLast(date)}}
-            />
+          <InputForm
+            maxLength={10}
+            keyboardType="number-pad"
+            value={selectedDateLast}
+            style={styles.mainInput4}
+            mask="maskDate"
+            inputMaskChange={(text: string) => handleCustom(text)}
+          />
         </View>
         <View style={styles.main}>
           <TextInput
             value={hora}
-            placeholder="Hora/Motor" placeholderTextColor='#000'
+            placeholder="Hora/Motor"
+            placeholderTextColor="#000"
             onChangeText={setHora}
             style={styles.mainInput3}
           />
@@ -115,50 +95,28 @@ function Review() {
         <View style={styles.main}>
           <TextInput
             value={responsavel}
-            placeholder="Empresa Responsável" placeholderTextColor='#000'
+            placeholder="Empresa Responsável"
+            placeholderTextColor="#000"
             onChangeText={setResponsavel}
             style={styles.mainInput4}
           />
         </View>
         <View style={styles.main}>
           <Text style={styles.mainInputText}>Próxima Revisão:</Text>
-          {/* <TextInput
-            value={revisao}
-            onChangeText={setRevisao}
-            style={styles.mainInput}
-          /> */}
-
-            <DatePicker
-              style={{width: 333,}}
-              date={selectedDateNext}
-              mode="date"
-              placeholder="select date"
-              format={FORMATS.date}
-              confirmBtnText="Confirm"
-              cancelBtnText="Cancel"
-              customStyles={{
-                dateIcon: {
-                  position: 'absolute',
-                  left: 0,
-                  top: 4,
-                  marginLeft: 20
-                },
-                dateInput: {
-                  
-                  backgroundColor: "#FFF",
-                  borderRadius: 14,
-                  maxWidth:333,
-                  borderColor: "#FFF",
-                  height:40,
-                }
-              }}
-              onDateChange={(date:any) => {setSelectedDateNext(date)}}
-            />
+          <InputForm
+            maxLength={10}
+            keyboardType="number-pad"
+            value={selectedDateNext}
+            style={styles.mainInput4}
+            mask="maskDate"
+            inputMaskChange={(text: string) => handleCustom1(text)}
+          />
         </View>
         <View style={styles.main}>
           <TextInput
             value={tecnico}
-            placeholder="Técnico" placeholderTextColor='#000'
+            placeholder="Técnico"
+            placeholderTextColor="#000"
             onChangeText={setTecnico}
             style={styles.mainInput5}
           />

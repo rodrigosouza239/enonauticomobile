@@ -105,7 +105,7 @@ function Vessel() {
   }
 
   function Blur() {
-    setmarginTop("4%");
+    setmarginTop("2%");
   }
 
   return (
@@ -127,23 +127,19 @@ function Vessel() {
             justifyContent: "center",
             alignItems: "center",
             height: "70%",
-            marginTop: marginTop,
+            marginTop:80,
           }}
         >
           <View style={styles.fieldInput}>
             <Text style={styles.fieldInputText}>Tipo de embarcação:</Text>
 
             <View style={styles.fieldInputTextInputProprietario}>
-              <Picker
-                selectedValue={jetski}
-                style={styles.fieldInputTextInputProprietarioPicker}
-                onValueChange={(itemValue: any, itemIndex) => {
-                  setjetski(itemValue)
-                }}
-              >
-                <Picker.Item label={"Lancha"} value={"Lancha"} />
-                <Picker.Item label={"Jetski"} value={"Jetski"} />
-              </Picker>
+            <TextInput
+              value={jetski}
+              placeholder="Lancha ou Jetski"
+              onChangeText={setjetski}
+              style={styles.fieldInputTextInputNome}
+            />
             </View>
           </View>
 

@@ -7,11 +7,11 @@ const styles = StyleSheet.create({
   },
 
   fieldInput: {
-    width: 300,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    marginBottom: 12,
+    flexDirection:'column',
+    alignSelf: "center",
+    justifyContent:'center',
+    width: "90%",
+    marginBottom: 10
   },
 
   fieldInputText: {
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
     fontSize: 16,
     color: "#222",
-    width: "80%",
+    width: "98%",
   },
 
   fieldInputTextInputProprietario: {
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
     fontSize: 16,
     color: "#222",
-    width: "66.5%",
+    width: "98%",
   },
 
   fieldInputTextInputMarca: {
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
     color: "#222",
     fontSize: 16,
-    width: "79%",
+    width: "98%",
   },
 
   fieldInputTextInputModelo: {
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     color: "#222",
     paddingVertical: 4,
     fontSize: 16,
-    width: "76%",
+    width: "98%",
   },
 
   fieldInputTextInputAno: {
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     color: "#222",
     paddingVertical: 4,
     fontSize: 16,
-    width: "85%",
+    width: "98%",
   },
 
   fieldInputTextInputComprimentoTotal: {
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 4,
     fontSize: 16,
-    width: "50%",
+    width: "98%",
   },
 
   fieldInputTextInputMotor: {
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     color: "#222",
     paddingVertical: 4,
     fontSize: 16,
-    width: "79%",
+    width: "98%",
   },
 
   fieldInputTextInputCapacidadeDeCombustivel: {
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
     color: "#222",
     fontSize: 16,
-    width: "30%",
+    width: "98%",
   },
 
   forms: {

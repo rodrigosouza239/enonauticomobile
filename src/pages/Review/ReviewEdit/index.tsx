@@ -9,9 +9,9 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
-
-// import api from "../../../service/axios";
-import DatePicker from 'react-native-datepicker'
+import DateForm from "../../../components/DateForm/index.android";
+import InputForm from "../../../components/Input";
+import api from "../../../service/axios";
 
 import Backgroud from "../../../assets/backgroudmenu.png";
 import styles from "./styles";
@@ -19,41 +19,49 @@ import Logo from "../../../assets/logo.png";
 import Grupo60 from "../../../assets/Grupo60.png";
 import HeaderBack from "../../../components/HeaderBack";
 
-import api from '../../../service/axios'
-
 function RevisaoJt() {
   const route = useRoute();
   const { navigate } = useNavigation();
-  const { review }: any = route.params;
 
+  const { review }: any = route.params;
   const [hora, setHora] = useState("");
   const [responsavel, setResponsavel] = useState("");
-
   const [tecnico, setTecnico] = useState("");
 
-  const [selectedDateLast, setSelectedDateLast] = useState(new Date());
-  const [selectedDateNext, setSelectedDateNext] = useState(new Date());
+  const [selectedDateLast, setSelectedDateLast] = useState("");
+  const [selectedDateNext, setSelectedDateNext] = useState("");
 
-  async function handleUpdateDataReview(){
+  function handleCustom(value: string) {
+    setSelectedDateLast(value);
+  }
+
+  function handleCustom1(value: string) {
+    setSelectedDateNext(value);
+  }
+
+  async function handleUpdateDataReview() {
+    console.log("ME DIZ SE CHEGOU AQUI");
     if (!tecnico || !responsavel || !hora) {
       alert("Preencha todos os campos por favor");
       return;
     }
 
+    console.log("date:", selectedDateLast);
+
     async function updateData() {
       const data = {
-        lastReview: String(selectedDateLast),
+        lastReview: selectedDateLast,
         engineHour: hora,
         firm: responsavel,
-        nextReview: String(selectedDateNext),
-        expert: tecnico
+        nextReview: selectedDateNext,
+        expert: tecnico,
       };
 
       try {
         const response = await api.put(`/reviews/${review.id}`, data);
-        navigate("ReviewDetails", {review: data});
+        navigate("ReviewDetails", { review: data });
       } catch (err) {
-        console.log(err.response)
+        console.log(err.response);
         alert("Erro na edição, tente novamente.");
       }
     }
@@ -65,44 +73,35 @@ function RevisaoJt() {
         {
           text: "Cancelar",
         },
-        { text: "Confirmar", onPress: () => updateData() },
+        // { text: "Confirmar", onPress: () => updateData() },
       ]
     );
-
-
   }
 
-  async function handleDeleteDataReview(){
-
+  async function handleDeleteDataReview() {
     async function deleteData() {
       try {
         const response = await api.delete(`/reviews/${review.id}`);
         navigate("Revisao");
       } catch (err) {
-        console.log(err.response)
+        console.log(err.response);
         alert("Erro em apagar, tente novamente.");
       }
     }
 
-    Alert.alert(
-      "Apagar Revisão",
-      "Você quer mesmo apagar esses dados?",
-      [
-        {
-          text: "Cancelar",
-        },
-        { text: "Confimar", onPress: () => deleteData() },
-      ]
-    );
-
-
+    Alert.alert("Apagar Revisão", "Você quer mesmo apagar esses dados?", [
+      {
+        text: "Cancelar",
+      },
+      { text: "Confimar", onPress: () => deleteData() },
+    ]);
   }
 
   useEffect(() => {
-    setSelectedDateLast(review.lastReview)
+    setSelectedDateLast(review.lastReview);
     setHora(review.engineHour);
     setResponsavel(review.firm);
-    setSelectedDateNext(review.nextReview)
+    setSelectedDateNext(review.nextReview);
     setTecnico(review.expert);
   }, []);
 
@@ -127,35 +126,14 @@ function RevisaoJt() {
             onChangeText={setDate}
             style={styles.mainInput2}
           /> */}
-
-          <DatePicker
-              style={{width: 200}}
-              date={selectedDateLast}
-              mode="date"
-              placeholder="select date"
-              format="YYYY-MM-DD"
-              minDate="2021-01-01"
-              maxDate="2099-06-01"
-              confirmBtnText="Confirm"
-              cancelBtnText="Cancel"
-              customStyles={{
-                dateIcon: {
-                  position: 'absolute',
-                  left: 0,
-                  // top: 4,
-                  marginLeft: 0
-                },
-                dateInput: {
-                  // marginLeft: 36
-                  backgroundColor: "#FFF",
-                  borderRadius: 14,
-                  maxWidth: "60%",
-                  borderColor: "#FFF",
-                  height: 38,
-                }
-              }}
-              onDateChange={(date:any) => {setSelectedDateLast(date)}}
-            />
+          <InputForm
+            maxLength={10}
+            keyboardType="number-pad"
+            value={selectedDateLast}
+            style={styles.mainInput4}
+            mask="maskDate"
+            inputMaskChange={(text: string) => handleCustom(text)}
+          />
         </View>
         <View style={styles.main}>
           <Text style={styles.mainInputText}>Hora/Motor:</Text>
@@ -180,35 +158,14 @@ function RevisaoJt() {
             onChangeText={setRevisao}
             style={styles.mainInput}
           /> */}
-
-          <DatePicker
-              style={{width: 200}}
-              date={selectedDateNext}
-              mode="date"
-              placeholder="select date"
-              format="YYYY-MM-DD"
-              minDate="2021-01-01"
-              maxDate="2099-06-01"
-              confirmBtnText="Confirm"
-              cancelBtnText="Cancel"
-              customStyles={{
-                dateIcon: {
-                  position: 'absolute',
-                  left: 0,
-                  top: 4,
-                  marginLeft: 0
-                },
-                dateInput: {
-                  marginLeft: 36,
-                  backgroundColor: "#FFF",
-                  borderRadius: 14,
-                  maxWidth: "80%",
-                  borderColor: "#FFF",
-                  height: 38,
-                }
-              }}
-              onDateChange={(date:any) => {setSelectedDateNext(date)}}
-            />
+          <InputForm
+            maxLength={10}
+            keyboardType="number-pad"
+            value={selectedDateNext}
+            style={styles.mainInput4}
+            mask="maskDate"
+            inputMaskChange={(text: string) => handleCustom1(text)}
+          />
         </View>
         <View style={styles.main}>
           <Text style={styles.mainInputText}>Técnico:</Text>
@@ -220,7 +177,7 @@ function RevisaoJt() {
         </View>
 
         <View style={styles.mainpastas}>
-        <TouchableOpacity
+          <TouchableOpacity
             onPress={handleDeleteDataReview}
             style={styles.ButtonDelete}
           >
